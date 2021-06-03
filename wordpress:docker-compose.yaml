@@ -1,0 +1,18 @@
+wordpress:
+    image: wordpress
+    links:
+     - mariadb:mysql
+    environment:
+     - WORDPRESS_DB_PASSWORD=deahan12345321
+     #- WORDPRESS_DB_HOST=mariadb
+    ports:
+     - 82:80
+    volumes:
+     - ./html:/var/www/html
+mariadb:
+    image: mariadb
+    environment:
+     - MYSQL_ROOT_PASSWORD=deahan12345321
+     - MYSQL_DATABASE=wordpress
+    volumes:
+     - ./database:/var/lib/mysql
